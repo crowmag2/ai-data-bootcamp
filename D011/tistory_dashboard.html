@@ -1,0 +1,165 @@
+
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>티스토리 구독 관리 대시보드</title>
+        <style>
+            body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f6; color: #333; padding: 40px; }
+            .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+            h1 { color: #e84c3d; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+            .stats { background: #fff5f5; padding: 15px; border-radius: 8px; font-weight: bold; margin-bottom: 25px; color: #d32f2f; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; }
+            th { background-color: #f9f9f9; }
+            .btn-link { background-color: #e84c3d; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; transition: 0.3s; display: inline-block; }
+            .btn-link:hover { background-color: #c0392b; transform: translateY(-1px); }
+            .url-text { font-family: monospace; color: #555; }
+            .row-done { background-color: #f9f9f9 !important; }
+            .row-done .url-text { color: #bbb; text-decoration: line-through; }
+            .row-done .btn-link { background-color: #ccc; }
+            input[type="checkbox"] { transform: scale(1.3); cursor: pointer; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📊 티스토리 맞구독 관리</h1>
+            <div class="stats">구독 중(397) | 구독자(437)</div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th width="60">체크</th>
+                        <th>블로그 주소</th>
+                        <th width="120">동작</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr id="row0">
+                        <td><input type="checkbox" id="check0" onclick="toggleRow(0)"></td>
+                        <td class="url-text">https://aistocklab.tistory.com</td>
+                        <td><a href="https://aistocklab.tistory.com" target="_blank" class="btn-link" onclick="autoMark(0)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row1">
+                        <td><input type="checkbox" id="check1" onclick="toggleRow(1)"></td>
+                        <td class="url-text">https://all-that-review.tistory.com</td>
+                        <td><a href="https://all-that-review.tistory.com" target="_blank" class="btn-link" onclick="autoMark(1)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row2">
+                        <td><input type="checkbox" id="check2" onclick="toggleRow(2)"></td>
+                        <td class="url-text">https://barrem.tistory.com</td>
+                        <td><a href="https://barrem.tistory.com" target="_blank" class="btn-link" onclick="autoMark(2)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row3">
+                        <td><input type="checkbox" id="check3" onclick="toggleRow(3)"></td>
+                        <td class="url-text">https://breadailyy.tistory.com</td>
+                        <td><a href="https://breadailyy.tistory.com" target="_blank" class="btn-link" onclick="autoMark(3)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row4">
+                        <td><input type="checkbox" id="check4" onclick="toggleRow(4)"></td>
+                        <td class="url-text">https://buptle-lawglog.tistory.com</td>
+                        <td><a href="https://buptle-lawglog.tistory.com" target="_blank" class="btn-link" onclick="autoMark(4)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row5">
+                        <td><input type="checkbox" id="check5" onclick="toggleRow(5)"></td>
+                        <td class="url-text">https://chance3000.tistory.com</td>
+                        <td><a href="https://chance3000.tistory.com" target="_blank" class="btn-link" onclick="autoMark(5)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row6">
+                        <td><input type="checkbox" id="check6" onclick="toggleRow(6)"></td>
+                        <td class="url-text">https://gemgemini.tistory.com</td>
+                        <td><a href="https://gemgemini.tistory.com" target="_blank" class="btn-link" onclick="autoMark(6)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row7">
+                        <td><input type="checkbox" id="check7" onclick="toggleRow(7)"></td>
+                        <td class="url-text">https://ggomg.tistory.com</td>
+                        <td><a href="https://ggomg.tistory.com" target="_blank" class="btn-link" onclick="autoMark(7)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row8">
+                        <td><input type="checkbox" id="check8" onclick="toggleRow(8)"></td>
+                        <td class="url-text">https://haneul-kim89.tistory.com</td>
+                        <td><a href="https://haneul-kim89.tistory.com" target="_blank" class="btn-link" onclick="autoMark(8)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row9">
+                        <td><input type="checkbox" id="check9" onclick="toggleRow(9)"></td>
+                        <td class="url-text">https://hobbylibrary.tistory.com</td>
+                        <td><a href="https://hobbylibrary.tistory.com" target="_blank" class="btn-link" onclick="autoMark(9)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row10">
+                        <td><input type="checkbox" id="check10" onclick="toggleRow(10)"></td>
+                        <td class="url-text">https://hosii.tistory.com</td>
+                        <td><a href="https://hosii.tistory.com" target="_blank" class="btn-link" onclick="autoMark(10)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row11">
+                        <td><input type="checkbox" id="check11" onclick="toggleRow(11)"></td>
+                        <td class="url-text">https://hyungag5.tistory.com</td>
+                        <td><a href="https://hyungag5.tistory.com" target="_blank" class="btn-link" onclick="autoMark(11)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row12">
+                        <td><input type="checkbox" id="check12" onclick="toggleRow(12)"></td>
+                        <td class="url-text">https://opentabs.tistory.com</td>
+                        <td><a href="https://opentabs.tistory.com" target="_blank" class="btn-link" onclick="autoMark(12)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row13">
+                        <td><input type="checkbox" id="check13" onclick="toggleRow(13)"></td>
+                        <td class="url-text">https://semoview.tistory.com</td>
+                        <td><a href="https://semoview.tistory.com" target="_blank" class="btn-link" onclick="autoMark(13)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row14">
+                        <td><input type="checkbox" id="check14" onclick="toggleRow(14)"></td>
+                        <td class="url-text">https://sermones.tistory.com</td>
+                        <td><a href="https://sermones.tistory.com" target="_blank" class="btn-link" onclick="autoMark(14)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row15">
+                        <td><input type="checkbox" id="check15" onclick="toggleRow(15)"></td>
+                        <td class="url-text">https://sportory.tistory.com</td>
+                        <td><a href="https://sportory.tistory.com" target="_blank" class="btn-link" onclick="autoMark(15)">방문하기</a></td>
+                    </tr>
+        
+                    <tr id="row16">
+                        <td><input type="checkbox" id="check16" onclick="toggleRow(16)"></td>
+                        <td class="url-text">https://whaleandroad.tistory.com</td>
+                        <td><a href="https://whaleandroad.tistory.com" target="_blank" class="btn-link" onclick="autoMark(16)">방문하기</a></td>
+                    </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        
+        <script>
+            // 방문하기 버튼 클릭 시 자동으로 체크박스 체크 및 스타일 변경
+            function autoMark(i) {
+                const checkbox = document.getElementById('check' + i);
+                checkbox.checked = true;
+                toggleRow(i);
+            }
+
+            // 체크박스 클릭 시 스타일 토글
+            function toggleRow(i) {
+                const row = document.getElementById('row' + i);
+                if (document.getElementById('check' + i).checked) {
+                    row.classList.add('row-done');
+                } else {
+                    row.classList.remove('row-done');
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
