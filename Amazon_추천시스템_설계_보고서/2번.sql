@@ -24,7 +24,7 @@ filtered AS (
     AND NOT regexp_matches(lower(product_name),
           'cartridge|refill|replacement|spare|combo of|pack of')
 ),
-dedup AS (   -- 가격·평점·리뷰수가 동일한 색상 변형은 대표 1건만
+dedup AS (
   SELECT * FROM filtered
   QUALIFY row_number() OVER (
     PARTITION BY cat_leaf, price, rating, rating_cnt

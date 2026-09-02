@@ -1,4 +1,4 @@
-WITH ur AS (
+WITH ur AS (   -- user_id 분해: 유저-상품 관계 복원
   SELECT m.product_id, trim(u) AS uid
   FROM product_master m, UNNEST(str_split(m.user_ids, ',')) AS t(u)
   WHERE trim(u) <> ''
@@ -6,13 +6,13 @@ WITH ur AS (
 prod_n AS (
   SELECT product_id, count(DISTINCT uid) AS n_users FROM ur GROUP BY 1
 ),
-pairs AS (
+pairs AS (     -- 유저를 공유하는 상품 쌍
   SELECT x.product_id AS p1, y.product_id AS p2, count(DISTINCT x.uid) AS common
   FROM ur x
   JOIN ur y ON x.uid = y.uid AND x.product_id < y.product_id
   GROUP BY 1, 2
 ),
-spec AS (
+spec AS (      -- 상품명 토큰 집합 + 사양 숫자 집합
   SELECT product_id,
     list_distinct(list_filter(
       str_split(regexp_replace(lower(product_name), '[^a-z0-9]', ' ', 'g'), ' '),
@@ -21,7 +21,7 @@ spec AS (
       regexp_extract_all(product_name, '[0-9]+(\.[0-9]+)?'))) AS nums
   FROM product_master
 ),
-cand AS (
+cand AS (      -- 사양 숫자 일치 쌍만 + 상품명 차집합 토큰 추출
   SELECT
     pr.p1, pr.p2, pr.common,
     pr.common::DOUBLE / (n1.n_users + n2.n_users - pr.common) AS user_jaccard,
@@ -39,7 +39,7 @@ cand AS (
   WHERE pr.common >= 2
     AND s1.nums = s2.nums
 ),
-gated AS (
+gated AS (     -- 차집합 토큰이 색상어로만 구성된 쌍만 통과
   SELECT * FROM cand
   WHERE name_jaccard >= 0.5
     AND len(list_filter(diff_tk, x -> list_contains(
@@ -59,7 +59,7 @@ gated AS (
     AND len(list_filter(diff_tk,
           x -> regexp_matches(x, '[a-z]') AND regexp_matches(x, '[0-9]'))) = 0
 ),
-bidir AS (
+bidir AS (     -- 관계가 대칭이므로 양방향 확장
   SELECT p1 AS anchor, p2 AS sibling, common, user_jaccard, name_jaccard, diff_tk FROM gated
   UNION ALL
   SELECT p2 AS anchor, p1 AS sibling, common, user_jaccard, name_jaccard, diff_tk FROM gated

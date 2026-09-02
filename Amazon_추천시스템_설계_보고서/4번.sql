@@ -10,7 +10,7 @@ WITH txt AS (
   FROM product_master
   WHERE review_content_l IS NOT NULL
     AND rating_cnt IS NOT NULL
-    AND length(review_content_l) >= 1500
+    AND length(review_content_l) >= 1500   -- 텍스트 부족 상품 배제
     AND rating >= 4.0
     AND rating_cnt >= 500
 ),
