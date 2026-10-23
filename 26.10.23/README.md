@@ -88,3 +88,7 @@ for lag in range(-20, 21, 5):
 ## 6. 한 줄 요약
 
 뉴스와 SNS는 가격을 설명할 뿐 예측하지 않는다. 톤으로 매매하면 늦고, 언급량이 폭증하면 오히려 팔 때다. 단, 실적 컨센서스가 강하게 막 상향되기 시작한 경우만은 예외다.
+
+참고 글:
+https://wejumplabs.com/entry/AI%EA%B0%80-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%9A%94%EC%95%BD%ED%95%B4%EC%A4%98%EB%8F%84-%EC%A3%BC%EC%8B%9D-%EC%88%98%EC%9D%B5%EC%9D%B4-%EC%95%88-%EB%82%98%EB%8A%94-%EC%9D%B4%EC%9C%A0
+https://wejumplabs.com/entry/AI%EA%B0%80-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EB%8B%A4-%EC%9D%B4%ED%95%B4%ED%95%B4%EB%8F%84-%EC%A3%BC%EC%8B%9D-%EC%88%98%EC%9D%B5%EC%9D%B4-%EC%95%88-%EB%82%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-LLM-%ED%80%80%ED%8A%B8-%ED%88%AC%EC%9E%90%EC%9D%98-%ED%95%9C%EA%B3%84%EC%99%80-%EC%8B%A4%EC%A0%84
